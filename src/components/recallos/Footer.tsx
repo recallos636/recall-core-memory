@@ -1,4 +1,4 @@
-import { Brain } from "lucide-react";
+
 
 const cols = [
   { title: "Product", links: ["Features", "Architecture", "Benchmarks", "Pricing"] },
@@ -14,10 +14,8 @@ export function Footer() {
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.5fr_repeat(4,1fr)]">
           <div>
             <div className="flex items-center gap-2">
-              <div className="grid h-8 w-8 place-items-center rounded-full bg-gradient-to-br from-[#A4F4FD] to-[#00d2ff] text-[#0c0c0c]">
-                <Brain className="h-4 w-4" strokeWidth={2.5} />
-              </div>
-              <span className="text-sm font-medium text-white">RecallOS</span>
+              <img src="/logo.png" alt="RecallOS Logo" className="h-7 w-auto" />
+              <span className="text-lg font-semibold text-white tracking-tight">RecallOS</span>
             </div>
             <p className="mt-4 max-w-xs text-sm text-white/55">
               The memory layer for AI. Persistent, semantic, model agnostic.

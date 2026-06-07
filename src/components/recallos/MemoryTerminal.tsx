@@ -208,7 +208,7 @@ export function MemoryTerminal() {
             <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
           </div>
           <div className="flex items-center gap-1.5 text-[11px] uppercase tracking-[0.18em] text-white/40">
-            <span className="pulse-dot inline-block h-1.5 w-1.5 rounded-full bg-[#00d2ff]" />
+            <span className="pulse-dot inline-block h-1.5 w-1.5 rounded-full bg-[#7CFF8A]" />
             recallos · memory terminal
           </div>
           <div className="text-[11px] text-white/40">v0.9.2</div>
@@ -251,7 +251,7 @@ export function MemoryTerminal() {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Search memory…"
-                className="w-full rounded-xl border border-white/10 bg-white/[0.03] py-2.5 pl-9 pr-3 text-sm text-white placeholder:text-white/40 outline-none focus:border-[#00d2ff]/50"
+                className="w-full rounded-xl border border-white/10 bg-white/[0.03] py-2.5 pl-9 pr-3 text-sm text-white placeholder:text-white/40 outline-none focus:border-[#7CFF8A]/50"
               />
             </div>
             <div className="flex flex-col gap-1.5">
@@ -268,7 +268,7 @@ export function MemoryTerminal() {
                       onClick={() => setSelectedId(m.id)}
                       className={`group flex items-start gap-3 rounded-xl border px-3 py-2.5 text-left transition-all ${
                         active
-                          ? "border-[#00d2ff]/40 bg-[#00d2ff]/[0.06]"
+                          ? "border-[#7CFF8A]/40 bg-[#7CFF8A]/[0.06]"
                           : "border-white/5 bg-white/[0.02] hover:border-white/15 hover:bg-white/[0.04]"
                       }`}
                     >
@@ -311,8 +311,8 @@ export function MemoryTerminal() {
             <div className="px-1 text-xs text-white/50">{selected.collection}</div>
 
             {/* AI summary */}
-            <div className="mt-3 rounded-xl border border-[#00d2ff]/20 bg-gradient-to-b from-[#00d2ff]/[0.08] to-transparent p-3">
-              <div className="mb-1.5 flex items-center gap-1.5 text-[11px] uppercase tracking-[0.18em] text-[#A4F4FD]">
+            <div className="mt-3 rounded-xl border border-[#7CFF8A]/20 bg-gradient-to-b from-[#7CFF8A]/[0.08] to-transparent p-3">
+              <div className="mb-1.5 flex items-center gap-1.5 text-[11px] uppercase tracking-[0.18em] text-[#4AFF71]">
                 <Sparkles className="h-3 w-3" /> AI Summary
               </div>
               <p className="text-[13px] leading-relaxed text-white/80">{selected.summary}</p>
@@ -322,7 +322,7 @@ export function MemoryTerminal() {
               <ul className="space-y-1.5">
                 {selected.facts.map((f) => (
                   <li key={f} className="flex gap-2 text-[12.5px] text-white/75">
-                    <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-[#00d2ff]" />
+                    <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-[#7CFF8A]" />
                     {f}
                   </li>
                 ))}
@@ -343,7 +343,7 @@ export function MemoryTerminal() {
               <ol className="relative space-y-2 border-l border-white/10 pl-3">
                 {selected.timeline.map((t) => (
                   <li key={t.t} className="relative text-[12px] text-white/70">
-                    <span className="absolute -left-[7px] top-1.5 h-1.5 w-1.5 rounded-full bg-[#A4F4FD]" />
+                    <span className="absolute -left-[7px] top-1.5 h-1.5 w-1.5 rounded-full bg-[#4AFF71]" />
                     <span className="text-white/45">{t.t}</span> — {t.e}
                   </li>
                 ))}

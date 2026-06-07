@@ -26,7 +26,7 @@ export function Features() {
       <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {features.map(({ icon: Icon, title, body }) => (
           <GlassCard key={title} className="group p-6 transition-transform duration-300 hover:-translate-y-0.5">
-            <div className="grid h-10 w-10 place-items-center rounded-xl bg-white/[0.04] text-[#A4F4FD] transition-colors group-hover:bg-[#00d2ff]/10">
+            <div className="grid h-10 w-10 place-items-center rounded-xl bg-white/[0.04] text-[#4AFF71] transition-colors group-hover:bg-[#7CFF8A]/10">
               <Icon className="h-5 w-5" />
             </div>
             <div className="mt-5 text-base font-medium tracking-tight text-white">{title}</div>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Menu, X, Brain } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { GradientButton } from "./ui/GradientButton";
 import { toast } from "sonner";
 
@@ -26,9 +26,7 @@ export function Navbar() {
       <div className="mx-auto mt-3 flex max-w-7xl items-center justify-between px-4">
         <div className="liquid-glass flex w-full items-center justify-between rounded-full px-4 py-2.5">
           <Link to="/" className="flex items-center gap-2" aria-label="RecallOS home">
-            <div className="relative grid h-8 w-8 place-items-center rounded-full bg-gradient-to-br from-[#A4F4FD] to-[#00d2ff] text-[#0c0c0c] shadow-[0_0_24px_rgba(0,210,255,0.5)]">
-              <Brain className="h-4 w-4" strokeWidth={2.5} />
-            </div>
+            <img src="/logo.png" alt="RecallOS Logo" className="h-8 w-auto" />
           </Link>
 
           <nav className="hidden items-center gap-1 md:flex">

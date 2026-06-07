@@ -9,10 +9,12 @@ import { Solution } from "@/components/recallos/Solution";
 import { Architecture } from "@/components/recallos/Architecture";
 import { Features } from "@/components/recallos/Features";
 import { Integrations } from "@/components/recallos/Integrations";
+import { Installation } from "@/components/recallos/Installation";
 import { Benchmarks } from "@/components/recallos/Benchmarks";
 import { Testimonials } from "@/components/recallos/Testimonials";
 import { Pricing } from "@/components/recallos/Pricing";
 import { FinalCTA } from "@/components/recallos/FinalCTA";
+import { Waitlist } from "@/components/recallos/Waitlist";
 import { Footer } from "@/components/recallos/Footer";
 import { Toaster } from "@/components/ui/sonner";
 
@@ -52,11 +54,13 @@ function RecallOSLanding() {
         <Architecture />
         <Features />
         <Integrations />
+        <Installation />
         <Benchmarks />
         <Testimonials />
         <Pricing />
         <FinalCTA />
       </main>
+      <Waitlist />
       <Footer />
       <Toaster theme="dark" position="bottom-right" />
     </div>

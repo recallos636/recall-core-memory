@@ -25,10 +25,10 @@ export function Architecture() {
 
       <div className="relative mx-auto mt-14 max-w-3xl">
         {/* center line */}
-        <div className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-[#00d2ff]/40 to-transparent" />
+        <div className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-[#7CFF8A]/40 to-transparent" />
         {/* traveling glow */}
         <motion.div
-          className="absolute left-1/2 h-3 w-3 -translate-x-1/2 rounded-full bg-[#00d2ff] shadow-[0_0_24px_8px_rgba(0,210,255,0.6)]"
+          className="absolute left-1/2 h-3 w-3 -translate-x-1/2 rounded-full bg-[#7CFF8A] shadow-[0_0_24px_8px_rgba(0,210,255,0.6)]"
           animate={{ top: ["0%", "100%"] }}
           transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
         />
@@ -45,7 +45,7 @@ export function Architecture() {
                 i % 2 === 0 ? "sm:self-start" : "sm:self-end"
               }`}
             >
-              <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-[#00d2ff]/20 to-[#0B2551]/40 text-[#A4F4FD]">
+              <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-[#7CFF8A]/20 to-[#0F2A18]/40 text-[#4AFF71]">
                 <n.icon className="h-5 w-5" />
               </div>
               <div className="flex-1">

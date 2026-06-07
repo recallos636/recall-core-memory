@@ -90,7 +90,7 @@ export function Pricing() {
             onClick={() => setAnnual(true)}
             className={`rounded-full px-4 py-1.5 transition-colors ${annual ? "bg-white text-[#0c0c0c]" : "text-white/70"}`}
           >
-            Annual <span className="ml-1 text-[10px] uppercase tracking-[0.18em] text-[#00d2ff]">−20%</span>
+            Annual <span className="ml-1 text-[10px] uppercase tracking-[0.18em] text-[#7CFF8A]">−20%</span>
           </button>
         </div>
       </div>
@@ -107,7 +107,7 @@ export function Pricing() {
               }`}
             >
               {p.highlight && (
-                <div className="mb-3 inline-flex rounded-full border border-[#00d2ff]/30 bg-[#00d2ff]/10 px-2.5 py-0.5 text-[10px] uppercase tracking-[0.18em] text-[#A4F4FD]">
+                <div className="mb-3 inline-flex rounded-full border border-[#7CFF8A]/30 bg-[#7CFF8A]/10 px-2.5 py-0.5 text-[10px] uppercase tracking-[0.18em] text-[#4AFF71]">
                   Most popular
                 </div>
               )}
@@ -140,7 +140,7 @@ export function Pricing() {
               <ul className="mt-6 space-y-2.5">
                 {p.features.map((f) => (
                   <li key={f} className="flex items-start gap-2 text-sm text-white/75">
-                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#00d2ff]" />
+                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#7CFF8A]" />
                     {f}
                   </li>
                 ))}

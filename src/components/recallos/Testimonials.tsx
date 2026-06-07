@@ -46,7 +46,7 @@ export function Testimonials() {
           <GlassCard key={q.name} className="p-6">
             <p className="text-[15px] leading-relaxed text-white/85">"{q.quote}"</p>
             <div className="mt-5 flex items-center gap-3">
-              <div className="grid h-9 w-9 place-items-center rounded-full bg-gradient-to-br from-[#A4F4FD] to-[#00d2ff] text-sm font-semibold text-[#0c0c0c]">
+              <div className="grid h-9 w-9 place-items-center rounded-full bg-gradient-to-br from-[#4AFF71] to-[#7CFF8A] text-sm font-semibold text-[#0c0c0c]">
                 {q.name.split(" ").map((p) => p[0]).join("").slice(0, 2)}
               </div>
               <div>

@@ -28,7 +28,7 @@ export function Architecture() {
         <div className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-[#7CFF8A]/40 to-transparent" />
         {/* traveling glow */}
         <motion.div
-          className="absolute left-1/2 h-3 w-3 -translate-x-1/2 rounded-full bg-[#7CFF8A] shadow-[0_0_24px_8px_rgba(0,210,255,0.6)]"
+          className="absolute left-1/2 h-3 w-3 -translate-x-1/2 rounded-full bg-[#7CFF8A] shadow-[0_0_24px_8px_rgba(101,255,154,0.35)]"
           animate={{ top: ["0%", "100%"] }}
           transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
         />

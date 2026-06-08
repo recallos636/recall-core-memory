@@ -40,7 +40,7 @@ export function Benchmarks() {
                     whileInView={{ width: `${m.bar}%` }}
                     viewport={{ once: true, amount: 0.5 }}
                     transition={{ duration: 1.4, ease: "easeOut" }}
-                    className="h-full rounded-full bg-gradient-to-r from-[#7CFF8A] to-[#4AFF71] shadow-[0_0_24px_rgba(0,210,255,0.4)]"
+                    className="h-full rounded-full bg-gradient-to-r from-[#7CFF8A] to-[#4AFF71] shadow-[0_0_24px_rgba(101,255,154,0.25)]"
                   />
                 </div>
               </div>

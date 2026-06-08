@@ -11,7 +11,7 @@ export function FinalCTA() {
           className="pointer-events-none absolute left-1/2 top-1/2 h-[700px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl"
           style={{
             background:
-              "radial-gradient(closest-side, rgba(0,210,255,0.35), rgba(11,37,81,0.2) 45%, transparent 75%)",
+              "radial-gradient(closest-side, rgba(124,255,138,0.18), rgba(101,255,154,0.10) 45%, transparent 75%)",
           }}
         />
         <div className="relative">

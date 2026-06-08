@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
-import { Check, Copy, Terminal as TerminalIcon } from "lucide-react";
+import { Check, Copy, Terminal as TerminalIcon, Github } from "lucide-react";
 import { SectionHeader } from "./Problem";
+
+const GITHUB_URL = "https://github.com/tushar-tomar11/recall-core-memory";
 
 const commands = [
   { cmd: "pip install recallos", out: "Successfully installed recallos" },
@@ -106,6 +108,19 @@ export function Installation() {
             )}
           </div>
         </div>
+      </div>
+
+      {/* GitHub CTA below terminal */}
+      <div className="mt-6 flex items-center justify-center gap-4 text-sm">
+        <a
+          href={GITHUB_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-white/60 transition-all hover:border-[#7CFF8A]/30 hover:text-[#7CFF8A] hover:bg-[#7CFF8A]/5"
+        >
+          <Github className="h-4 w-4" />
+          View source on GitHub
+        </a>
       </div>
     </section>
   );

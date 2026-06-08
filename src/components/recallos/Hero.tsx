@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { ArrowRight, BookOpen } from "lucide-react";
+import { ArrowRight, BookOpen, Github } from "lucide-react";
 import { GradientButton } from "./ui/GradientButton";
 import { ShinyText } from "./ui/ShinyText";
 import { toast } from "sonner";
@@ -68,6 +68,11 @@ export function Hero() {
                   <BookOpen className="h-4 w-4" /> View Documentation
                 </GradientButton>
               </Link>
+              <a href="https://github.com/tushar-tomar11/recall-core-memory" target="_blank" rel="noopener noreferrer">
+                <GradientButton variant="outline" className="px-6 py-3 text-[15px] w-full sm:w-auto justify-center">
+                  <Github className="h-4 w-4" /> View on GitHub
+                </GradientButton>
+              </a>
             </motion.div>
 
             <motion.p

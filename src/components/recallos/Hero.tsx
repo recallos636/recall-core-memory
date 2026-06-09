@@ -14,18 +14,29 @@ export function Hero() {
           
           {/* Left Column: Text Content */}
           <div className="flex-1 text-center lg:text-left max-w-3xl mx-auto lg:mx-0">
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="liquid-glass mb-7 inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs text-white/70"
-            >
-              <span className="relative flex h-1.5 w-1.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#7CFF8A] opacity-70" />
-                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#7CFF8A]" />
-              </span>
-              Now in private beta — v0.9
-            </motion.div>
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-7">
+              <motion.div
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="liquid-glass inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs text-white/70"
+              >
+                <span className="relative flex h-1.5 w-1.5">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#7CFF8A] opacity-70" />
+                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#7CFF8A]" />
+                </span>
+                Now in private beta — v0.9
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="liquid-glass inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs text-white/90 border border-[#7CFF8A]/30 shadow-[0_0_15px_rgba(124,255,138,0.1)]"
+              >
+                <span className="text-[#7CFF8A] text-[10px]">●</span> Token Live on Solana
+              </motion.div>
+            </div>
 
             <motion.h1
               initial={{ opacity: 0, y: 20 }}

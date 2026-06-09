@@ -16,8 +16,8 @@ import "node:stream";
 import "../_libs/react-dom.mjs";
 import "crypto";
 import "async_hooks";
-import "util";
 import "stream";
+import "util";
 import "../_libs/isbot.mjs";
 import "../_libs/base-x.mjs";
 import "../_libs/safe-buffer.mjs";
@@ -74,7 +74,7 @@ import "../_libs/@solana/wallet-standard-wallet-adapter-react+[...].mjs";
 import "../_libs/wallet-standard__app.mjs";
 import "../_libs/@solana/wallet-standard-wallet-adapter-base+[...].mjs";
 import "../_libs/wallet-standard__wallet.mjs";
-const appCss = "/assets/styles-2Ed2fBwR.css";
+const appCss = "/assets/styles-hM6TT5Hv.css";
 function reportLovableError(error, context = {}) {
   if (typeof window === "undefined") return;
   window.__lovableEvents?.captureException?.(
@@ -248,11 +248,11 @@ const Route$3 = createRootRouteWithContext()({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "RecallOS — The Memory Layer for AI" },
-      { name: "description", content: "Persistent memory infrastructure for AI agents, copilots, and applications. Open source." },
+      { title: "RecallOS — The Memory Layer For AI" },
+      { name: "description", content: "Persistent AI memory infrastructure on Solana with live ecosystem token support." },
       { name: "author", content: "RecallOS" },
-      { property: "og:title", content: "RecallOS — The Memory Layer for AI" },
-      { property: "og:description", content: "Persistent memory infrastructure for AI agents, copilots, and applications. Open source." },
+      { property: "og:title", content: "RecallOS — The Memory Layer For AI" },
+      { property: "og:description", content: "Persistent AI memory infrastructure on Solana with live ecosystem token support." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://recallos.live" },
       { property: "og:image", content: "https://recallos.live/og-image.png" },
@@ -298,28 +298,28 @@ function RootComponent() {
   const { queryClient } = Route$3.useRouteContext();
   return /* @__PURE__ */ jsxRuntimeExports.jsx(QueryClientProvider, { client: queryClient, children: /* @__PURE__ */ jsxRuntimeExports.jsx(WalletContextProvider, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(Outlet, {}) }) });
 }
-const $$splitComponentImporter$2 = () => import("./downloads-BtOzVLkM.mjs");
+const $$splitComponentImporter$2 = () => import("./downloads-7DD5bM0l.mjs");
 const Route$2 = createFileRoute("/downloads")({
   component: lazyRouteComponent($$splitComponentImporter$2, "component")
 });
-const $$splitComponentImporter$1 = () => import("./docs-Dv1_c0Du.mjs");
+const $$splitComponentImporter$1 = () => import("./docs-sxJte2x3.mjs");
 const Route$1 = createFileRoute("/docs")({
   component: lazyRouteComponent($$splitComponentImporter$1, "component")
 });
-const $$splitComponentImporter = () => import("./index-DbW7piYR.mjs");
+const $$splitComponentImporter = () => import("./index-sQV5V5lW.mjs");
 const Route = createFileRoute("/")({
   head: () => ({
     meta: [{
-      title: "RecallOS — The Memory Layer for AI"
+      title: "RecallOS — The Memory Layer For AI"
     }, {
       name: "description",
-      content: "RecallOS gives AI agents, copilots, and assistants a persistent AI memory layer that survives across conversations, projects, and workflows."
+      content: "Persistent AI memory infrastructure on Solana with live ecosystem token support."
     }, {
       property: "og:title",
-      content: "RecallOS — The Memory Layer for AI"
+      content: "RecallOS — The Memory Layer For AI"
     }, {
       property: "og:description",
-      content: "Persistent, semantic, model-agnostic memory for the AI era. Compatible with Claude, GPT, Gemini, DeepSeek, Qwen and open-source models."
+      content: "Persistent AI memory infrastructure on Solana with live ecosystem token support."
     }, {
       property: "og:type",
       content: "website"

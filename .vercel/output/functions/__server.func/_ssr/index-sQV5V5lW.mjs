@@ -1,13 +1,13 @@
 import { j as jsxRuntimeExports, r as reactExports } from "../_libs/react.mjs";
-import { B as BackgroundLayer, N as Navbar, F as Footer, C as ConnectWalletButton, G as GradientButton, c as cn } from "./BackgroundLayer-Mikfjp9E.mjs";
+import { B as BackgroundLayer, N as Navbar, F as Footer, C as ConnectWalletButton, G as GradientButton, c as cn } from "./BackgroundLayer-BeNlb310.mjs";
 import { L as Link } from "../_libs/tanstack__react-router.mjs";
 import { t as toast, T as Toaster$1 } from "../_libs/sonner.mjs";
 import "../_libs/bs58.mjs";
 import { m as motion, A as AnimatePresence } from "../_libs/framer-motion.mjs";
-import { B as BookOpen, m as Github, n as Star, o as Folder, D as Database, F as FileText, p as FlaskConical, c as CodeXml, U as Users, S as Search, q as Bookmark, r as Clock, s as Sparkles, N as Network, X, g as Check, t as Type, a as Layers, W as Workflow, i as Cpu, u as MessagesSquare, k as Brain, v as FolderGit2, w as BotMessageSquare, x as Repeat, y as ChartColumn, z as Code, E as Boxes, T as Terminal, l as Copy, A as ArrowRight } from "../_libs/lucide-react.mjs";
+import { B as BookOpen, m as Github, g as Check, l as Copy, n as Star, o as Folder, D as Database, F as FileText, p as FlaskConical, c as CodeXml, U as Users, S as Search, q as Bookmark, r as Clock, s as Sparkles, N as Network, X, t as Type, a as Layers, W as Workflow, i as Cpu, u as MessagesSquare, k as Brain, v as FolderGit2, w as BotMessageSquare, x as Repeat, y as ChartColumn, z as Code, E as Boxes, T as Terminal, H as ExternalLink, A as ArrowRight, I as ChartLine } from "../_libs/lucide-react.mjs";
 import "../_libs/clsx.mjs";
 import "../_libs/tailwind-merge.mjs";
-import "./router-BJUcTRnC.mjs";
+import "./router-D11AFA9y.mjs";
 import "../_libs/tanstack__query-core.mjs";
 import "../_libs/tanstack__react-query.mjs";
 import "../_libs/solana__wallet-adapter-react.mjs";
@@ -88,22 +88,37 @@ function ShinyText({ children, className }) {
 function Hero() {
   return /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "relative pt-40 pb-24 sm:pt-48 sm:pb-32 overflow-hidden", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mx-auto max-w-7xl px-4 relative z-10", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-8", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex-1 text-center lg:text-left max-w-3xl mx-auto lg:mx-0", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(
-        motion.div,
-        {
-          initial: { opacity: 0, y: 12 },
-          animate: { opacity: 1, y: 0 },
-          transition: { duration: 0.6 },
-          className: "liquid-glass mb-7 inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs text-white/70",
-          children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "relative flex h-1.5 w-1.5", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "absolute inline-flex h-full w-full animate-ping rounded-full bg-[#7CFF8A] opacity-70" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "relative inline-flex h-1.5 w-1.5 rounded-full bg-[#7CFF8A]" })
-            ] }),
-            "Now in private beta — v0.9"
-          ]
-        }
-      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-7", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          motion.div,
+          {
+            initial: { opacity: 0, y: 12 },
+            animate: { opacity: 1, y: 0 },
+            transition: { duration: 0.6 },
+            className: "liquid-glass inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs text-white/70",
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "relative flex h-1.5 w-1.5", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "absolute inline-flex h-full w-full animate-ping rounded-full bg-[#7CFF8A] opacity-70" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "relative inline-flex h-1.5 w-1.5 rounded-full bg-[#7CFF8A]" })
+              ] }),
+              "Now in private beta — v0.9"
+            ]
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          motion.div,
+          {
+            initial: { opacity: 0, y: 12 },
+            animate: { opacity: 1, y: 0 },
+            transition: { duration: 0.6, delay: 0.1 },
+            className: "liquid-glass inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs text-white/90 border border-[#7CFF8A]/30 shadow-[0_0_15px_rgba(124,255,138,0.1)]",
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-[#7CFF8A] text-[10px]", children: "●" }),
+              " Token Live on Solana"
+            ]
+          }
+        )
+      ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs(
         motion.h1,
         {
@@ -532,6 +547,147 @@ function Metric({ label, value }) {
     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-0.5 text-sm font-medium text-white", children: value })
   ] });
 }
+function TokenStrip() {
+  const [copied, setCopied] = reactExports.useState(false);
+  const contractAddress = "8HGYvXMLjW9hd1JXbHZQYqRps7DiPS1H3HWyxm7Mpump";
+  const shortAddress = `${contractAddress.slice(0, 4)}...${contractAddress.slice(-4)}`;
+  const handleCopy = () => {
+    navigator.clipboard.writeText(contractAddress);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2e3);
+  };
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "relative mx-auto max-w-5xl px-4 mt-8 sm:mt-12 mb-20 z-10", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+    motion.div,
+    {
+      initial: { opacity: 0, y: 20 },
+      animate: { opacity: 1, y: 0 },
+      transition: { duration: 0.8, delay: 0.3 },
+      className: "liquid-glass relative overflow-hidden rounded-2xl p-4 sm:p-5 border border-[#7CFF8A]/20 shadow-[0_0_40px_rgba(124,255,138,0.1)] flex flex-col md:flex-row items-center justify-between gap-4",
+      children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-gradient-to-r from-[#7CFF8A]/5 via-transparent to-[#7CFF8A]/5 pointer-events-none" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "relative flex h-2 w-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "absolute inline-flex h-full w-full animate-ping rounded-full bg-[#7CFF8A] opacity-70" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "relative inline-flex h-2 w-2 rounded-full bg-[#7CFF8A]" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-white font-medium whitespace-nowrap", children: "RecallOS Token Live" })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2 bg-white/[0.03] border border-white/5 rounded-lg px-3 py-1.5 w-full sm:w-auto justify-between sm:justify-start", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xs text-white/40", children: "CA:" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "text-sm text-white/80 font-mono tracking-wider", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "hidden sm:inline", children: [
+                contractAddress.slice(0, 8),
+                "...",
+                contractAddress.slice(-6)
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "sm:hidden", children: shortAddress })
+            ] })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2 w-full sm:w-auto", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "button",
+              {
+                onClick: handleCopy,
+                className: "flex-1 sm:flex-none flex items-center justify-center gap-1.5 px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-medium text-white transition-colors",
+                children: copied ? /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(Check, { className: "w-3.5 h-3.5 text-[#7CFF8A]" }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-[#7CFF8A]", children: "Copied" })
+                ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(Copy, { className: "w-3.5 h-3.5 text-white/70" }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Copy CA" })
+                ] })
+              }
+            ),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "a",
+              {
+                href: "https://pump.fun/coin/8HGYvXMLjW9hd1JXbHZQYqRps7DiPS1H3HWyxm7Mpump",
+                target: "_blank",
+                rel: "noopener noreferrer",
+                className: "flex-1 sm:flex-none flex items-center justify-center gap-1.5 px-4 py-2 rounded-lg bg-[#7CFF8A]/10 hover:bg-[#7CFF8A]/20 border border-[#7CFF8A]/20 text-xs font-medium text-[#7CFF8A] transition-colors",
+                children: "Pump.fun"
+              }
+            ),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "a",
+              {
+                href: "https://dexscreener.com/solana/8HGYvXMLjW9hd1JXbHZQYqRps7DiPS1H3HWyxm7Mpump",
+                target: "_blank",
+                rel: "noopener noreferrer",
+                className: "flex-1 sm:flex-none flex items-center justify-center gap-1.5 px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-medium text-white transition-colors",
+                children: "DexScreener"
+              }
+            )
+          ] })
+        ] })
+      ]
+    }
+  ) });
+}
+function FloatingTokenWidget() {
+  const [isVisible, setIsVisible] = reactExports.useState(false);
+  reactExports.useEffect(() => {
+    const timer = setTimeout(() => {
+      const dismissed = localStorage.getItem("recallos_token_widget_dismissed");
+      if (!dismissed) {
+        setIsVisible(true);
+      }
+    }, 2500);
+    return () => clearTimeout(timer);
+  }, []);
+  const handleDismiss = () => {
+    setIsVisible(false);
+    localStorage.setItem("recallos_token_widget_dismissed", "true");
+  };
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(AnimatePresence, { children: isVisible && /* @__PURE__ */ jsxRuntimeExports.jsx(
+    motion.div,
+    {
+      initial: { opacity: 0, y: 50, scale: 0.9 },
+      animate: { opacity: 1, y: 0, scale: 1 },
+      exit: { opacity: 0, y: 20, scale: 0.9 },
+      transition: { duration: 0.4, type: "spring", stiffness: 200, damping: 20 },
+      className: "fixed bottom-6 right-6 z-50 hidden lg:block",
+      children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "liquid-glass relative overflow-hidden rounded-2xl p-4 border border-[#7CFF8A]/30 shadow-[0_10px_40px_rgba(124,255,138,0.15)] flex flex-col gap-3 min-w-[220px]", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-gradient-to-br from-[#7CFF8A]/10 to-transparent pointer-events-none" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative z-10 flex items-start justify-between gap-4", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2 mb-1", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "relative flex h-2 w-2", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "absolute inline-flex h-full w-full animate-ping rounded-full bg-[#7CFF8A] opacity-70" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "relative inline-flex h-2 w-2 rounded-full bg-[#7CFF8A]" })
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-[10px] font-bold uppercase tracking-wider text-[#7CFF8A]", children: "LIVE" })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "text-sm font-medium text-white", children: "RecallOS Token" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "button",
+            {
+              onClick: handleDismiss,
+              className: "text-white/40 hover:text-white transition-colors",
+              "aria-label": "Dismiss",
+              children: /* @__PURE__ */ jsxRuntimeExports.jsx(X, { className: "w-4 h-4" })
+            }
+          )
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          "a",
+          {
+            href: "https://dexscreener.com/solana/8HGYvXMLjW9hd1JXbHZQYqRps7DiPS1H3HWyxm7Mpump",
+            target: "_blank",
+            rel: "noopener noreferrer",
+            className: "relative z-10 flex items-center justify-center gap-2 w-full py-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg text-xs font-medium text-white transition-all hover:border-[#7CFF8A]/30 group",
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(ChartLine, { className: "w-3.5 h-3.5 text-[#7CFF8A] group-hover:scale-110 transition-transform" }),
+              "View Chart"
+            ]
+          }
+        )
+      ] })
+    }
+  ) });
+}
 function CountUp({
   to,
   duration = 2e3,
@@ -959,6 +1115,13 @@ function Stat({ label, value }) {
   ] });
 }
 function TokenSection() {
+  const [copied, setCopied] = reactExports.useState(false);
+  const contractAddress = "8HGYvXMLjW9hd1JXbHZQYqRps7DiPS1H3HWyxm7Mpump";
+  const handleCopy = () => {
+    navigator.clipboard.writeText(contractAddress);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2e3);
+  };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { id: "token", className: "relative mx-auto mt-32 max-w-7xl px-4", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(
       SectionHeader,
@@ -972,35 +1135,63 @@ function TokenSection() {
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-gradient-to-br from-[#7CFF8A]/5 to-transparent pointer-events-none" }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative z-10 flex flex-col md:flex-row gap-12 items-center justify-between", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex-1 w-full space-y-6", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-2 gap-6", children: [
-            { label: "Ticker", value: "Coming Soon" },
-            { label: "Supply", value: "Coming Soon" },
-            { label: "Launch", value: "Coming Soon" },
-            { label: "Network", value: "Solana", highlight: true }
-          ].map((stat, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xs uppercase tracking-[0.15em] text-white/40 mb-1", children: stat.label }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: `text-lg font-medium ${stat.highlight ? "text-[#7CFF8A]" : "text-white"}`, children: stat.value })
-          ] }, i)) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col gap-6", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xs uppercase tracking-[0.15em] text-white/40 mb-1", children: "Network" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "relative flex h-2 w-2", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "absolute inline-flex h-full w-full animate-ping rounded-full bg-[#7CFF8A] opacity-70" }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "relative inline-flex h-2 w-2 rounded-full bg-[#7CFF8A]" })
+                ] }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-lg font-medium text-[#7CFF8A]", children: "Solana" })
+              ] })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xs uppercase tracking-[0.15em] text-white/40 mb-1", children: "Contract Address" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm sm:text-base font-mono text-white break-all bg-white/[0.02] p-2 rounded-lg border border-white/5 inline-block", children: contractAddress })
+            ] })
+          ] }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-white/50 leading-relaxed mt-4 max-w-md", children: "The RecallOS token will enable decentralized memory storage, node operator rewards, and protocol governance. Token holders will receive exclusive access to premium documentation, beta features, and the decentralized indexing network." })
         ] }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "w-full md:w-auto flex flex-col gap-3", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-xs uppercase tracking-[0.15em] text-white/40 mb-2 md:text-right", children: "Markets" }),
-          [
-            { name: "Pump.fun" },
-            { name: "DEX Screener" },
-            { name: "Birdeye" }
-          ].map((dex) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-xs uppercase tracking-[0.15em] text-white/40 mb-2 md:text-right", children: "Markets & Actions" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            "a",
+            {
+              href: "https://pump.fun/coin/8HGYvXMLjW9hd1JXbHZQYqRps7DiPS1H3HWyxm7Mpump",
+              target: "_blank",
+              rel: "noopener noreferrer",
+              className: "group flex items-center justify-between gap-6 rounded-xl border border-[#7CFF8A]/20 bg-[#7CFF8A]/10 hover:bg-[#7CFF8A]/20 transition-colors px-5 py-3 text-sm text-[#7CFF8A] w-full min-w-[220px]",
+              children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-medium", children: "Buy on Pump.fun" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx(ExternalLink, { className: "w-4 h-4 opacity-50 group-hover:opacity-100 transition-opacity" })
+              ]
+            }
+          ),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            "a",
+            {
+              href: "https://dexscreener.com/solana/8HGYvXMLjW9hd1JXbHZQYqRps7DiPS1H3HWyxm7Mpump",
+              target: "_blank",
+              rel: "noopener noreferrer",
+              className: "group flex items-center justify-between gap-6 rounded-xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] transition-colors px-5 py-3 text-sm text-white w-full min-w-[220px]",
+              children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-medium", children: "View on DexScreener" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx(ExternalLink, { className: "w-4 h-4 opacity-50 group-hover:opacity-100 transition-opacity text-white/50" })
+              ]
+            }
+          ),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(
             "button",
             {
-              disabled: true,
-              className: "flex items-center justify-between gap-6 rounded-xl border border-white/5 bg-white/[0.02] px-5 py-3 text-sm text-white/40 cursor-not-allowed w-full min-w-[200px]",
+              onClick: handleCopy,
+              className: "group flex items-center justify-between gap-6 rounded-xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] transition-colors px-5 py-3 text-sm text-white w-full min-w-[220px]",
               children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-medium", children: dex.name }),
-                /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center gap-2", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xs", children: "Coming Soon" }) })
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-medium", children: "Copy Contract Address" }),
+                copied ? /* @__PURE__ */ jsxRuntimeExports.jsx(Check, { className: "w-4 h-4 text-[#7CFF8A]" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Copy, { className: "w-4 h-4 opacity-50 group-hover:opacity-100 transition-opacity text-white/50" })
               ]
-            },
-            dex.name
-          ))
+            }
+          )
         ] })
       ] })
     ] }) })
@@ -1284,6 +1475,7 @@ function RecallOSLanding() {
     /* @__PURE__ */ jsxRuntimeExports.jsx(Navbar, {}),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("main", { children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx(Hero, {}),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(TokenStrip, {}),
       /* @__PURE__ */ jsxRuntimeExports.jsx(MemoryTerminal, {}),
       /* @__PURE__ */ jsxRuntimeExports.jsx(SocialProof, {}),
       /* @__PURE__ */ jsxRuntimeExports.jsx(Problem, {}),
@@ -1300,6 +1492,7 @@ function RecallOSLanding() {
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Waitlist, {}),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Footer, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(FloatingTokenWidget, {}),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Toaster, { theme: "dark", position: "bottom-right" })
   ] });
 }

@@ -4,7 +4,6 @@ import { Footer } from "@/components/recallos/Footer";
 import { BackgroundLayer } from "@/components/recallos/BackgroundLayer";
 import { ConnectWalletButton } from "@/components/recallos/ConnectWalletButton";
 import { useWalletAuth } from "@/hooks/useWalletAuth";
-import { useWalletModal } from "@solana/wallet-adapter-react-ui";
 import { FileText, CheckCircle2, Lock } from "lucide-react";
 import { checkAccess } from "@/lib/accessControl";
 
@@ -14,7 +13,6 @@ export const Route = createFileRoute("/downloads")({
 
 function DownloadsPage() {
   const { connected, publicKey, session } = useWalletAuth();
-  const { setVisible } = useWalletModal();
 
   // If connected, check access. For now, checkAccess just returns true if connected
   const hasAccess = connected && publicKey && checkAccess(publicKey.toString(), "download");

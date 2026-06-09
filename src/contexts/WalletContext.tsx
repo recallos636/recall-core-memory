@@ -4,6 +4,8 @@ import React, { useMemo } from "react";
 import { ConnectionProvider, WalletProvider } from "@solana/wallet-adapter-react";
 import { WalletModalProvider } from "@solana/wallet-adapter-react-ui";
 
+import { AuthProvider } from "./AuthContext";
+
 // Using mainnet-beta endpoint
 const endpoint = "https://api.mainnet-beta.solana.com";
 
@@ -14,7 +16,9 @@ export function WalletContextProvider({ children }: { children: React.ReactNode 
   return (
     <ConnectionProvider endpoint={endpoint}>
       <WalletProvider wallets={wallets} autoConnect>
-        <WalletModalProvider>{children}</WalletModalProvider>
+        <WalletModalProvider>
+          <AuthProvider>{children}</AuthProvider>
+        </WalletModalProvider>
       </WalletProvider>
     </ConnectionProvider>
   );

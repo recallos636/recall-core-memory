@@ -2,7 +2,9 @@ import { Q as QueryClient } from "../_libs/tanstack__query-core.mjs";
 import { Q as QueryClientProvider } from "../_libs/tanstack__react-query.mjs";
 import { c as createRouter, a as createRootRouteWithContext, u as useRouter, L as Link, O as Outlet, H as HeadContent, S as Scripts, b as createFileRoute, l as lazyRouteComponent } from "../_libs/tanstack__react-router.mjs";
 import { r as reactExports, j as jsxRuntimeExports } from "../_libs/react.mjs";
-import { C as ConnectionProvider, W as WalletProvider } from "../_libs/solana__wallet-adapter-react.mjs";
+import { a as bs58 } from "../_libs/bs58.mjs";
+import { t as toast } from "../_libs/sonner.mjs";
+import { C as ConnectionProvider, W as WalletProvider, u as useWallet } from "../_libs/solana__wallet-adapter-react.mjs";
 import { W as WalletModalProvider } from "../_libs/@solana/wallet-adapter-react-ui+[...].mjs";
 import "../_libs/tanstack__router-core.mjs";
 import "../_libs/tanstack__history.mjs";
@@ -17,15 +19,14 @@ import "async_hooks";
 import "util";
 import "stream";
 import "../_libs/isbot.mjs";
-import "../_libs/solana__web3.js.mjs";
+import "../_libs/base-x.mjs";
+import "../_libs/safe-buffer.mjs";
 import "buffer";
+import "../_libs/solana__web3.js.mjs";
 import "../_libs/noble__curves.mjs";
 import "../_libs/noble__hashes.mjs";
 import "node:crypto";
 import "../_libs/bn.js.mjs";
-import "../_libs/bs58.mjs";
-import "../_libs/base-x.mjs";
-import "../_libs/safe-buffer.mjs";
 import "../_libs/borsh.mjs";
 import "../_libs/text-encoding-utf-8.mjs";
 import "../_libs/solana__buffer-layout.mjs";
@@ -90,10 +91,110 @@ function reportLovableError(error, context = {}) {
     }
   );
 }
+const AuthContext = reactExports.createContext(null);
+function AuthProvider({ children }) {
+  const { publicKey, signMessage, disconnect: walletDisconnect, connected, connecting, wallet } = useWallet();
+  const [session, setSession] = reactExports.useState(null);
+  const [isAuthenticating, setIsAuthenticating] = reactExports.useState(false);
+  const [hasHydrated, setHasHydrated] = reactExports.useState(false);
+  const syncSession = reactExports.useCallback(() => {
+    const stored = localStorage.getItem("recallos_session");
+    if (stored) {
+      try {
+        const parsed = JSON.parse(stored);
+        setSession(parsed);
+      } catch (e) {
+        localStorage.removeItem("recallos_session");
+        setSession(null);
+      }
+    } else {
+      setSession(null);
+    }
+  }, []);
+  reactExports.useEffect(() => {
+    syncSession();
+    setHasHydrated(true);
+    const handleStorageChange = (e) => {
+      if (e.key === "recallos_session") {
+        syncSession();
+      }
+    };
+    window.addEventListener("storage", handleStorageChange);
+    return () => window.removeEventListener("storage", handleStorageChange);
+  }, [syncSession]);
+  const authenticate = reactExports.useCallback(async () => {
+    if (!publicKey || !signMessage) return;
+    if (session && session.publicKey === publicKey.toString()) {
+      return;
+    }
+    setIsAuthenticating(true);
+    try {
+      const timestamp = Date.now();
+      const message = `Welcome to RecallOS
+
+Sign this message to verify wallet ownership.
+
+Wallet:
+${publicKey.toString()}
+
+Timestamp:
+${timestamp}`;
+      const messageBytes = new TextEncoder().encode(message);
+      const signatureBytes = await signMessage(messageBytes);
+      const signature = bs58.encode(signatureBytes);
+      const newSession = {
+        publicKey: publicKey.toString(),
+        signature,
+        timestamp
+      };
+      setSession(newSession);
+      localStorage.setItem("recallos_session", JSON.stringify(newSession));
+      toast.success("Wallet authenticated successfully");
+    } catch (error) {
+      console.error("Authentication failed:", error);
+      toast.error("Authentication failed. Please try again.");
+      await walletDisconnect();
+    } finally {
+      setIsAuthenticating(false);
+    }
+  }, [publicKey, signMessage, session, walletDisconnect]);
+  reactExports.useEffect(() => {
+    if (!hasHydrated) return;
+    if (connected && publicKey && !isAuthenticating) {
+      if (!session || session.publicKey !== publicKey.toString()) {
+        authenticate();
+      }
+    }
+  }, [connected, publicKey, session, authenticate, isAuthenticating, hasHydrated]);
+  const disconnect = reactExports.useCallback(async () => {
+    setSession(null);
+    localStorage.removeItem("recallos_session");
+    await walletDisconnect();
+  }, [walletDisconnect]);
+  const truncatedAddress = publicKey ? `${publicKey.toString().slice(0, 4)}...${publicKey.toString().slice(-4)}` : "";
+  const isFullyConnected = connected && !!session && !!publicKey && session.publicKey === publicKey.toString();
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    AuthContext.Provider,
+    {
+      value: {
+        session,
+        isAuthenticating,
+        authenticate,
+        disconnect,
+        connected: isFullyConnected,
+        connecting: connecting || isAuthenticating || !hasHydrated,
+        publicKey,
+        wallet,
+        truncatedAddress
+      },
+      children
+    }
+  );
+}
 const endpoint = "https://api.mainnet-beta.solana.com";
 function WalletContextProvider({ children }) {
   const wallets = reactExports.useMemo(() => [], []);
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(ConnectionProvider, { endpoint, children: /* @__PURE__ */ jsxRuntimeExports.jsx(WalletProvider, { wallets, autoConnect: true, children: /* @__PURE__ */ jsxRuntimeExports.jsx(WalletModalProvider, { children }) }) });
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(ConnectionProvider, { endpoint, children: /* @__PURE__ */ jsxRuntimeExports.jsx(WalletProvider, { wallets, autoConnect: true, children: /* @__PURE__ */ jsxRuntimeExports.jsx(WalletModalProvider, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(AuthProvider, { children }) }) }) });
 }
 function NotFoundComponent() {
   return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex min-h-screen items-center justify-center bg-[#050A07] px-4", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-md text-center", children: [
@@ -112,7 +213,7 @@ function NotFoundComponent() {
 }
 function ErrorComponent({ error, reset }) {
   console.error(error);
-  const router = useRouter();
+  const router2 = useRouter();
   reactExports.useEffect(() => {
     reportLovableError(error, { boundary: "tanstack_root_error_component" });
   }, [error]);
@@ -124,7 +225,7 @@ function ErrorComponent({ error, reset }) {
         "button",
         {
           onClick: () => {
-            router.invalidate();
+            router2.invalidate();
             reset();
           },
           className: "inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90",
@@ -197,15 +298,15 @@ function RootComponent() {
   const { queryClient } = Route$3.useRouteContext();
   return /* @__PURE__ */ jsxRuntimeExports.jsx(QueryClientProvider, { client: queryClient, children: /* @__PURE__ */ jsxRuntimeExports.jsx(WalletContextProvider, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(Outlet, {}) }) });
 }
-const $$splitComponentImporter$2 = () => import("./downloads-DN7mURml.mjs");
+const $$splitComponentImporter$2 = () => import("./downloads-BtOzVLkM.mjs");
 const Route$2 = createFileRoute("/downloads")({
   component: lazyRouteComponent($$splitComponentImporter$2, "component")
 });
-const $$splitComponentImporter$1 = () => import("./docs-BD_CcjB4.mjs");
+const $$splitComponentImporter$1 = () => import("./docs-Dv1_c0Du.mjs");
 const Route$1 = createFileRoute("/docs")({
   component: lazyRouteComponent($$splitComponentImporter$1, "component")
 });
-const $$splitComponentImporter = () => import("./index-DrrywZFV.mjs");
+const $$splitComponentImporter = () => import("./index-DbW7piYR.mjs");
 const Route = createFileRoute("/")({
   head: () => ({
     meta: [{
@@ -252,14 +353,19 @@ const rootRouteChildren = {
 const routeTree = Route$3._addFileChildren(rootRouteChildren)._addFileTypes();
 const getRouter = () => {
   const queryClient = new QueryClient();
-  const router = createRouter({
+  const router2 = createRouter({
     routeTree,
     context: { queryClient },
     scrollRestoration: true,
     defaultPreloadStaleTime: 0
   });
-  return router;
+  return router2;
 };
-export {
+const router = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
   getRouter
+}, Symbol.toStringTag, { value: "Module" }));
+export {
+  AuthContext as A,
+  router as r
 };

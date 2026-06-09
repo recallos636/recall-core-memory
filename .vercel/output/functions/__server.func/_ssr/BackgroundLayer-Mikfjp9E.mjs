@@ -2,9 +2,7 @@ import { r as reactExports, j as jsxRuntimeExports } from "../_libs/react.mjs";
 import { L as Link } from "../_libs/tanstack__react-router.mjs";
 import { c as clsx } from "../_libs/clsx.mjs";
 import { t as twMerge } from "../_libs/tailwind-merge.mjs";
-import { a as bs58 } from "../_libs/bs58.mjs";
-import { t as toast } from "../_libs/sonner.mjs";
-import { u as useWallet } from "../_libs/solana__wallet-adapter-react.mjs";
+import { A as AuthContext } from "./router-BJUcTRnC.mjs";
 import { m as Github, X, M as Menu, H as User, I as LogOut, J as Twitter } from "../_libs/lucide-react.mjs";
 import { u as useWalletModal } from "../_libs/@solana/wallet-adapter-react-ui+[...].mjs";
 function cn(...inputs) {
@@ -25,80 +23,11 @@ function GradientButton({
   return /* @__PURE__ */ jsxRuntimeExports.jsx("button", { className: cn(base, styles[variant], className), ...props, children });
 }
 function useWalletAuth() {
-  const { publicKey, signMessage, disconnect, connected, connecting, wallet } = useWallet();
-  const [session, setSession] = reactExports.useState(null);
-  const [isAuthenticating, setIsAuthenticating] = reactExports.useState(false);
-  reactExports.useEffect(() => {
-    const stored = localStorage.getItem("recallos_session");
-    if (stored) {
-      try {
-        const parsed = JSON.parse(stored);
-        if (Date.now() - parsed.timestamp < 24 * 60 * 60 * 1e3) {
-          setSession(parsed);
-        } else {
-          localStorage.removeItem("recallos_session");
-        }
-      } catch (e) {
-      }
-    }
-  }, []);
-  const authenticate = reactExports.useCallback(async () => {
-    if (!publicKey || !signMessage) return;
-    if (session && session.publicKey === publicKey.toString()) {
-      return;
-    }
-    setIsAuthenticating(true);
-    try {
-      const timestamp = Date.now();
-      const message = `Welcome to RecallOS
-
-Sign this message to verify wallet ownership.
-
-Wallet:
-${publicKey.toString()}
-
-Timestamp:
-${timestamp}`;
-      const messageBytes = new TextEncoder().encode(message);
-      const signatureBytes = await signMessage(messageBytes);
-      const signature = bs58.encode(signatureBytes);
-      const newSession = {
-        publicKey: publicKey.toString(),
-        signature,
-        timestamp
-      };
-      setSession(newSession);
-      localStorage.setItem("recallos_session", JSON.stringify(newSession));
-      toast.success("Wallet authenticated successfully");
-    } catch (error) {
-      console.error("Authentication failed:", error);
-      toast.error("Authentication failed. Please try again.");
-      disconnect();
-    } finally {
-      setIsAuthenticating(false);
-    }
-  }, [publicKey, signMessage, session, disconnect]);
-  reactExports.useEffect(() => {
-    if (connected && publicKey && !isAuthenticating) {
-      authenticate();
-    }
-  }, [connected, publicKey, authenticate, isAuthenticating]);
-  reactExports.useEffect(() => {
-    if (!connected && session) {
-      setSession(null);
-      localStorage.removeItem("recallos_session");
-    }
-  }, [connected, session]);
-  const truncatedAddress = publicKey ? `${publicKey.toString().slice(0, 4)}...${publicKey.toString().slice(-4)}` : "";
-  return {
-    connected: connected && !!session,
-    connecting: connecting || isAuthenticating,
-    publicKey,
-    truncatedAddress,
-    session,
-    disconnect,
-    wallet
-  };
+  const context = reactExports.useContext(AuthContext);
+  if (!context) {
+    throw new Error("useWalletAuth must be used within an AuthProvider");
+  }
+  return context;
 }
 function ConnectWalletButton({ className }) {
   const { connected, truncatedAddress, disconnect, connecting } = useWalletAuth();

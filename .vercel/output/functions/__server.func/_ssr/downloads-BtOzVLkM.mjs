@@ -1,8 +1,7 @@
 import { j as jsxRuntimeExports } from "../_libs/react.mjs";
-import { u as useWalletAuth, B as BackgroundLayer, N as Navbar, C as ConnectWalletButton, F as Footer } from "./BackgroundLayer-Deigh_si.mjs";
+import { u as useWalletAuth, B as BackgroundLayer, N as Navbar, C as ConnectWalletButton, F as Footer } from "./BackgroundLayer-Mikfjp9E.mjs";
 import "../_libs/bs58.mjs";
 import "../_libs/sonner.mjs";
-import { u as useWalletModal } from "../_libs/@solana/wallet-adapter-react-ui+[...].mjs";
 import { F as FileText, C as CircleCheck, L as Lock } from "../_libs/lucide-react.mjs";
 import "../_libs/tanstack__react-router.mjs";
 import "../_libs/tanstack__router-core.mjs";
@@ -20,6 +19,9 @@ import "stream";
 import "../_libs/isbot.mjs";
 import "../_libs/clsx.mjs";
 import "../_libs/tailwind-merge.mjs";
+import "./router-BJUcTRnC.mjs";
+import "../_libs/tanstack__query-core.mjs";
+import "../_libs/tanstack__react-query.mjs";
 import "../_libs/solana__wallet-adapter-react.mjs";
 import "../_libs/solana__web3.js.mjs";
 import "buffer";
@@ -74,6 +76,7 @@ import "../_libs/@solana/wallet-standard-wallet-adapter-react+[...].mjs";
 import "../_libs/wallet-standard__app.mjs";
 import "../_libs/@solana/wallet-standard-wallet-adapter-base+[...].mjs";
 import "../_libs/wallet-standard__wallet.mjs";
+import "../_libs/@solana/wallet-adapter-react-ui+[...].mjs";
 import "../_libs/base-x.mjs";
 import "../_libs/safe-buffer.mjs";
 function checkAccess(publicKey, resource) {
@@ -97,9 +100,6 @@ function DownloadsPage() {
     publicKey,
     session
   } = useWalletAuth();
-  const {
-    setVisible
-  } = useWalletModal();
   const hasAccess = connected && publicKey && checkAccess(publicKey.toString(), "download");
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative min-h-screen overflow-x-hidden text-white", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(BackgroundLayer, {}),

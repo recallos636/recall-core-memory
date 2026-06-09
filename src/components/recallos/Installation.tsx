@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Check, Copy, Terminal as TerminalIcon, Github } from "lucide-react";
 import { SectionHeader } from "./Problem";
 
-const GITHUB_URL = "https://github.com/tushar-tomar11/recall-core-memory";
+const GITHUB_URL = "https://github.com/recallos636/recall-core-memory";
 
 const commands = [
   { cmd: "pip install recallos", out: "Successfully installed recallos" },

@@ -4,6 +4,7 @@ import { GradientButton } from "./ui/GradientButton";
 import { ShinyText } from "./ui/ShinyText";
 import { toast } from "sonner";
 import { Link } from "@tanstack/react-router";
+import { ConnectWalletButton } from "./ConnectWalletButton";
 
 export function Hero() {
   return (
@@ -43,7 +44,7 @@ export function Hero() {
               transition={{ duration: 0.8, delay: 0.15 }}
               className="mt-7 max-w-xl text-balance text-base leading-relaxed text-white/60 sm:text-lg mx-auto lg:mx-0"
             >
-              RecallOS gives AI agents, copilots, and assistants a persistent memory
+              RecallOS gives AI agents, copilots, and assistants a persistent AI memory
               layer that survives across conversations, projects, and workflows.
             </motion.p>
 
@@ -53,22 +54,13 @@ export function Hero() {
               transition={{ duration: 0.8, delay: 0.25 }}
               className="mt-9 flex flex-col sm:flex-row items-center gap-3 justify-center lg:justify-start"
             >
-              <GradientButton
-                onClick={() =>
-                  toast.success("RecallOS download queued", {
-                    description: "We'll email a link to install it locally.",
-                  })
-                }
-                className="px-6 py-3 text-[15px] w-full sm:w-auto justify-center"
-              >
-                Download RecallOS <ArrowRight className="h-4 w-4" />
-              </GradientButton>
+              <ConnectWalletButton className="px-6 py-3 text-[15px] w-full sm:w-auto justify-center" />
               <Link to="/docs">
                 <GradientButton variant="outline" className="px-6 py-3 text-[15px] w-full sm:w-auto justify-center">
                   <BookOpen className="h-4 w-4" /> View Documentation
                 </GradientButton>
               </Link>
-              <a href="https://github.com/tushar-tomar11/recall-core-memory" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/recallos636/recall-core-memory" target="_blank" rel="noopener noreferrer">
                 <GradientButton variant="outline" className="px-6 py-3 text-[15px] w-full sm:w-auto justify-center">
                   <Github className="h-4 w-4" /> View on GitHub
                 </GradientButton>

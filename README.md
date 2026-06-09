@@ -7,8 +7,8 @@
 Give your AI agents, copilots, and applications the ability to **remember everything**.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/tushar-tomar11/recall-core-memory/pulls)
-[![GitHub stars](https://img.shields.io/github/stars/tushar-tomar11/recall-core-memory?style=social)](https://github.com/tushar-tomar11/recall-core-memory)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/recallos636/recall-core-memory/pulls)
+[![GitHub stars](https://img.shields.io/github/stars/recallos636/recall-core-memory?style=social)](https://github.com/recallos636/recall-core-memory)
 [![npm version](https://img.shields.io/npm/v/recallos?color=7CFF8A)](https://www.npmjs.com/package/recallos)
 
 [Website](https://recallos.dev) · [Documentation](https://docs.recallos.dev) · [Discord](https://discord.gg/recallos) · [Twitter](https://twitter.com/recallos_dev)
@@ -235,7 +235,7 @@ We're building the future of AI memory in the open. Here's where we're headed:
 - [ ] Memory compression & summarization
 - [ ] Plugin ecosystem
 
-> **Want to influence the roadmap?** [Vote on features](https://github.com/tushar-tomar11/recall-core-memory/discussions) or [open an issue](https://github.com/tushar-tomar11/recall-core-memory/issues).
+> **Want to influence the roadmap?** [Vote on features](https://github.com/recallos636/recall-core-memory/discussions) or [open an issue](https://github.com/recallos636/recall-core-memory/issues).
 
 ---
 
@@ -245,7 +245,7 @@ We welcome contributions from everyone. Whether it's a bug fix, new feature, doc
 
 ```bash
 # Clone the repo
-git clone https://github.com/tushar-tomar11/recall-core-memory.git
+git clone https://github.com/recallos636/recall-core-memory.git
 cd recall-core-memory
 
 # Install dependencies
@@ -260,7 +260,7 @@ ruff check .
 
 Please read our [**Contributing Guide**](CONTRIBUTING.md) and [**Code of Conduct**](CODE_OF_CONDUCT.md) before submitting a PR.
 
-> **First time contributing to open source?** We've tagged issues with `good first issue` to help you get started. [Browse them here →](https://github.com/tushar-tomar11/recall-core-memory/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
+> **First time contributing to open source?** We've tagged issues with `good first issue` to help you get started. [Browse them here →](https://github.com/recallos636/recall-core-memory/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
 
 ---
 
@@ -270,8 +270,8 @@ Join the RecallOS community — we'd love to have you.
 
 - 💬 [**Discord**](https://discord.gg/recallos) — Chat with the team and community
 - 🐦 [**Twitter / X**](https://twitter.com/recallos_dev) — Follow for updates and announcements
-- 💡 [**GitHub Discussions**](https://github.com/tushar-tomar11/recall-core-memory/discussions) — Ask questions, share ideas, vote on features
-- 🐛 [**Issue Tracker**](https://github.com/tushar-tomar11/recall-core-memory/issues) — Report bugs or request features
+- 💡 [**GitHub Discussions**](https://github.com/recallos636/recall-core-memory/discussions) — Ask questions, share ideas, vote on features
+- 🐛 [**Issue Tracker**](https://github.com/recallos636/recall-core-memory/issues) — Report bugs or request features
 
 ---
 

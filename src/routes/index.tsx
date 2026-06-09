@@ -11,6 +11,7 @@ import { Features } from "@/components/recallos/Features";
 import { Integrations } from "@/components/recallos/Integrations";
 import { Installation } from "@/components/recallos/Installation";
 import { Benchmarks } from "@/components/recallos/Benchmarks";
+import { TokenSection } from "@/components/recallos/TokenSection";
 import { Testimonials } from "@/components/recallos/Testimonials";
 import { Pricing } from "@/components/recallos/Pricing";
 import { FinalCTA } from "@/components/recallos/FinalCTA";
@@ -25,7 +26,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "RecallOS gives AI agents, copilots, and assistants a persistent memory layer that survives across conversations, projects, and workflows.",
+          "RecallOS gives AI agents, copilots, and assistants a persistent AI memory layer that survives across conversations, projects, and workflows.",
       },
       { property: "og:title", content: "RecallOS — The Memory Layer for AI" },
       {
@@ -56,6 +57,7 @@ function RecallOSLanding() {
         <Integrations />
         <Installation />
         <Benchmarks />
+        <TokenSection />
         <Testimonials />
         <Pricing />
         <FinalCTA />

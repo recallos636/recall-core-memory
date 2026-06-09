@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, useMemo, useCallback, useEffect, useRef } from "react";
 import { BackgroundLayer } from "@/components/recallos/BackgroundLayer";
 import { Navbar } from "@/components/recallos/Navbar";
@@ -344,13 +344,13 @@ function Callout({
 }) {
   const styles = {
     info: "border-[#7CFF8A]/20 bg-[#7CFF8A]/5",
-    warning: "border-yellow-500/20 bg-yellow-500/5",
-    tip: "border-blue-400/20 bg-blue-400/5",
+    tip: "border-[#7CFF8A]/30 bg-[#7CFF8A]/10",
+    warning: "border-yellow-400/20 bg-yellow-400/5",
   };
   const iconColors = {
     info: "text-[#7CFF8A]",
+    tip: "text-[#7CFF8A]",
     warning: "text-yellow-400",
-    tip: "text-blue-400",
   };
   const icons = {
     info: <Zap className={`w-4 h-4 ${iconColors[type]}`} />,
@@ -412,8 +412,8 @@ function ParamTable({
 
 function EndpointBadge({ method, path }: { method: string; path: string }) {
   const colors: Record<string, string> = {
-    GET: "bg-blue-500/10 text-blue-400 border-blue-500/20",
-    POST: "bg-[#7CFF8A]/10 text-[#7CFF8A] border-[#7CFF8A]/20",
+    GET: "bg-[#7CFF8A]/10 text-[#7CFF8A] border-[#7CFF8A]/20",
+    POST: "bg-[#7CFF8A]/20 text-[#7CFF8A] border-[#7CFF8A]/30",
     PUT: "bg-yellow-500/10 text-yellow-400 border-yellow-500/20",
     PATCH: "bg-orange-500/10 text-orange-400 border-orange-500/20",
     DELETE: "bg-red-500/10 text-red-400 border-red-500/20",
@@ -2770,6 +2770,16 @@ function DocsPage() {
 
           {/* Content Card */}
           <div className="bg-[#0A140D]/50 border border-white/[0.04] backdrop-blur-xl rounded-2xl p-6 sm:p-10 lg:p-12 shadow-[0_0_60px_rgba(124,255,138,0.02)]">
+            <div className="mb-10 p-5 rounded-xl bg-gradient-to-r from-[#7CFF8A]/10 to-transparent border border-[#7CFF8A]/20 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div>
+                <h3 className="text-white font-medium mb-1">Get the Full Setup Guide</h3>
+                <p className="text-sm text-white/60">Download the complete 21-page architectural reference and implementation guide.</p>
+              </div>
+              <Link to="/downloads" className="whitespace-nowrap rounded-full bg-[#7CFF8A]/10 px-4 py-2 text-sm font-medium text-[#7CFF8A] hover:bg-[#7CFF8A]/20 transition-colors border border-[#7CFF8A]/20">
+                Download PDF
+              </Link>
+            </div>
+
             <CurrentComponent />
 
             {/* Prev / Next Navigation */}

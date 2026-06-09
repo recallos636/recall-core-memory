@@ -1,6 +1,7 @@
 import { ArrowRight, BookOpen } from "lucide-react";
 import { GradientButton } from "./ui/GradientButton";
 import { toast } from "sonner";
+import { ConnectWalletButton } from "./ConnectWalletButton";
 
 export function FinalCTA() {
   return (
@@ -21,16 +22,7 @@ export function FinalCTA() {
             <span className="shiny-text">Give it one.</span>
           </h2>
           <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <GradientButton
-              onClick={() =>
-                toast.success("RecallOS download queued", {
-                  description: "We'll email you a link to install.",
-                })
-              }
-              className="px-6 py-3 text-[15px]"
-            >
-              Download RecallOS <ArrowRight className="h-4 w-4" />
-            </GradientButton>
+            <ConnectWalletButton className="px-6 py-3 text-[15px]" />
             <GradientButton variant="outline" className="px-6 py-3 text-[15px]">
               <BookOpen className="h-4 w-4" /> View Docs
             </GradientButton>

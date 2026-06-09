@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Github, Twitter } from "lucide-react";
 
-const GITHUB_URL = "https://github.com/tushar-tomar11/recall-core-memory";
+const GITHUB_URL = "https://github.com/recallos636/recall-core-memory";
 
 const cols = [
   {
@@ -17,6 +17,7 @@ const cols = [
     title: "Developers",
     links: [
       { label: "Documentation", href: "/docs", isRoute: true },
+      { label: "Downloads", href: "/downloads", isRoute: true },
       { label: "GitHub", href: GITHUB_URL, external: true },
       { label: "Changelog", href: "#" },
       { label: "Status", href: "#" },

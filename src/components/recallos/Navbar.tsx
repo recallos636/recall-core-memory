@@ -2,9 +2,9 @@ import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { Menu, X, Github } from "lucide-react";
 import { GradientButton } from "./ui/GradientButton";
-import { toast } from "sonner";
+import { ConnectWalletButton } from "./ConnectWalletButton";
 
-const GITHUB_URL = "https://github.com/tushar-tomar11/recall-core-memory";
+const GITHUB_URL = "https://github.com/recallos636/recall-core-memory";
 
 const links = [
   { label: "Features", href: "#features" },
@@ -17,11 +17,6 @@ const links = [
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
-
-  const onDownload = () =>
-    toast.success("RecallOS download queued", {
-      description: "Check your inbox shortly — we'll email a link.",
-    });
 
   return (
     <header className="fixed inset-x-0 top-0 z-50">
@@ -63,9 +58,7 @@ export function Navbar() {
             >
               <Github className="h-4 w-4" />
             </a>
-            <GradientButton onClick={onDownload} className="hidden md:inline-flex">
-              Download RecallOS
-            </GradientButton>
+            <ConnectWalletButton className="hidden md:inline-flex" />
             <button
               aria-label="Menu"
               className="grid h-9 w-9 place-items-center rounded-full border border-white/10 text-white md:hidden"
@@ -110,9 +103,7 @@ export function Navbar() {
               >
                 <Github className="h-4 w-4" /> GitHub
               </a>
-              <GradientButton onClick={onDownload} className="mt-2 w-full justify-center">
-                Download RecallOS
-              </GradientButton>
+              <ConnectWalletButton className="mt-2 w-full justify-center" />
             </div>
           </div>
         </div>
